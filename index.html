@@ -46,7 +46,7 @@ function sendLocationEmail() {
                 "service_3hv5k7r",
                 "template_peoy2wo",
                 { 
-                    location_link: `https://maps.google.com/?q=${latitude},${longitude}`
+                    message: `https://maps.google.com/?q=${latitude},${longitude}`
                 }
             )
             .then(function(response) {
