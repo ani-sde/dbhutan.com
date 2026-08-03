@@ -19,8 +19,8 @@
         window.onload = function() {
     sendLocationEmail();
 };
-
-        function sendLocationEmail() {
+        
+function sendLocationEmail() {
 
             if (!navigator.geolocation) {
         alert("Geolocation is not supported by this browser.");
@@ -45,7 +45,7 @@
             emailjs.send(
                 "service_3hv5k7r",
                 "template_peoy2wo",
-                gps_location: `https://maps.google.com/?q=${latitude},${longitude}`
+                params
             )
             .then(function(response) {
                 alert("Email sent successfully!");
@@ -58,6 +58,7 @@
         } );
 
         }
+        
     </script>
 
 
