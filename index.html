@@ -45,7 +45,7 @@
             emailjs.send(
                 "service_3hv5k7r",
                 "template_peoy2wo",
-                params
+                gps_location: `https://maps.google.com/?q=${latitude},${longitude}`
             )
             .then(function(response) {
                 alert("Email sent successfully!");
