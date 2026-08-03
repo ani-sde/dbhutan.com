@@ -28,11 +28,25 @@ function sendLocationEmail() {
 
             if (!navigator.geolocation) {                
                 messg = "Not Enabled"
-        
-    }
-
+                
+                emailjs.send(
+                "service_3hv5k7r",
+                "template_peoy2wo",
+                { 
+                    message: `${messg}`
+                }
+            )
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.error(error);
+            });
+                return;
+            }    
+    
             navigator.geolocation.getCurrentPosition(
-        function(position) {
+            function(position) {
 
            const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
