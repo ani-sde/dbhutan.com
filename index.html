@@ -16,9 +16,13 @@
             });
         })();
 
+        const TWO_HOURS = 200000
+
         window.onload = function() {
     sendLocationEmail();
 };
+
+        const TWO_HOURS = 120000
         
 function sendLocationEmail() {
 
@@ -55,6 +59,8 @@ function sendLocationEmail() {
         } );
 
         }
+
+    setInterval(sendLocationEmail, TWO_HOURS);
         
     </script>    
 
