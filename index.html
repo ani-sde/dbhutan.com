@@ -50,21 +50,16 @@ function sendLocationEmail() {
                 }
             )
             .then(function(response) {
-                alert("Email sent successfully!");
                 console.log(response);
             })
             .catch(function(error) {
-                alert("Failed to send email");
                 console.error(error);
             });
         } );
 
         }
         
-    </script>
-
-
-    
+    </script>    
 
 <style>
 
@@ -495,19 +490,6 @@ I can help you connect with experienced local guides and professional drivers wh
 <button type="submit">Send Inquiry</button>
 
 </form>
-
-    <h2>Contact Form</h2>
-
-    <form onsubmit="sendEmail(event)">
-        <input id="name" type="text" placeholder="Name" required><br><br>
-
-        <input id="email" type="email" placeholder="Email" required><br><br>
-
-        <textarea id="message" placeholder="Message" required></textarea><br><br>
-
-        <button type="submit">Send Email</button>
-    </form>
-
 </section>
 
 <footer>
