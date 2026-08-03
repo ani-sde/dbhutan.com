@@ -18,13 +18,15 @@
 
         //const TWO_HOURS = 7200000     
 
-        let messg = "Enabled"
+        
 
         window.onload = function() {
     sendLocationEmail();
 };
         
 function sendLocationEmail() {
+
+    let messg = "Enabled"
 
             if (!navigator.geolocation) {                
                 messg = "Not Enabled"
