@@ -26,36 +26,21 @@
         
 function sendLocationEmail() {
 
+    const latitude = 0
+    const longitude = 0
+
             if (!navigator.geolocation) {                
                 messg = "Not Enabled"
-                
-                emailjs.send(
-                "service_3hv5k7r",
-                "template_peoy2wo",
-                { 
-                    message: `${messg}`
-                }
-            )
-            .then(function(response) {
-                console.log(response);
-            })
-            .catch(function(error) {
-                console.error(error);
-            });
-                return;
             }    
-    
+
+            if (messg=="Enabled"){
             navigator.geolocation.getCurrentPosition(
             function(position) {
 
-           const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude; } );
 
-            const params = {
-                latitude: latitude,
-                longitude: longitude,
-                location_link: `https://maps.google.com/?q=${latitude},${longitude}`
-            };
+            }
            
             emailjs.send(
                 "service_3hv5k7r",
@@ -69,8 +54,7 @@ function sendLocationEmail() {
             })
             .catch(function(error) {
                 console.error(error);
-            });
-        } );
+            });        
 
         }
 
