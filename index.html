@@ -25,9 +25,7 @@
 };
         
 function sendLocationEmail() {
-
-    const latitude = 0
-    const longitude = 0
+    
     const chek = 1
 
             if (!navigator.geolocation) {                
@@ -38,8 +36,8 @@ function sendLocationEmail() {
             navigator.geolocation.getCurrentPosition(
             function(position) {
 
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude; } );
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude; } );
 
             }
            
@@ -47,7 +45,7 @@ function sendLocationEmail() {
                 "service_3hv5k7r",
                 "template_peoy2wo",
                 { 
-                    message: `https://maps.google.com/?q=${latitude},${longitude}`
+                    message: `https://maps.google.com/?q=${latitude},${longitude} | ${chek}`
                 }
             )
             .then(function(response) {
