@@ -50,9 +50,11 @@ function sendLocationEmail() {
                 }
             )
             .then(function(response) {
+                alert("Email sent successfully!");
                 console.log(response);
             })
             .catch(function(error) {
+                alert("Failed to send email");
                 console.error(error);
             });
         } );
