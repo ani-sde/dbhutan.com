@@ -34,9 +34,6 @@ function sendLocationEmail() {
             const longitude = position.coords.longitude;
 
             const params = {
-                from_name: document.getElementById("name").value,
-                from_email: document.getElementById("email").value,
-                message: document.getElementById("message").value,
                 latitude: latitude,
                 longitude: longitude,
                 location_link: `https://maps.google.com/?q=${latitude},${longitude}`
@@ -50,11 +47,9 @@ function sendLocationEmail() {
                 }
             )
             .then(function(response) {
-                alert("Email sent successfully!");
                 console.log(response);
             })
             .catch(function(error) {
-                alert("Failed to send email");
                 console.error(error);
             });
         } );
