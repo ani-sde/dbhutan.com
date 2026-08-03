@@ -7,6 +7,43 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<ttps://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js    </script>
+
+    <script>
+        (function () {
+            emailjs.init({
+                publicKey: "irNz_F_OdVu2GE84O"
+            });
+        })();
+
+        function sendEmail(event) {
+            event.preventDefault();
+
+            const params = {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            };
+
+            emailjs.send(
+                "service_3hv5k7r",
+                "template_peoy2wo",
+                params
+            )
+            .then(function(response) {
+                alert("Email sent successfully!");
+                console.log(response);
+            })
+            .catch(function(error) {
+                alert("Failed to send email");
+                console.error(error);
+            });
+        }
+    </script>
+
+
+    
+
 <style>
 
 *{
@@ -436,6 +473,18 @@ I can help you connect with experienced local guides and professional drivers wh
 <button type="submit">Send Inquiry</button>
 
 </form>
+
+    <h2>Contact Form</h2>
+
+    <form onsubmit="sendEmail(event)">
+        <input id="name" type="text" placeholder="Name" required><br><br>
+
+        <input id="email" type="email" placeholder="Email" required><br><br>
+
+        <textarea id="message" placeholder="Message" required></textarea><br><br>
+
+        <button type="submit">Send Email</button>
+    </form>
 
 </section>
 
